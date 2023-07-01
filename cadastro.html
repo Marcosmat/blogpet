@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro na Petlândia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container input,
+    .container select {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 25px;
+    }
+
+    .container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .container button:hover {
+      background-color: #555;
+    }
+  </style>
+  <script>
+    function cadastrar() {
+      // Captura os valores dos campos de entrada
+      var nome = document.getElementById('nome').value;
+      var email = document.getElementById('email').value;
+      var confirmarEmail = document.getElementById('confirmarEmail').value;
+      var dataNascimento = document.getElementById('dataNascimento').value;
+      var senha = document.getElementById('senha').value;
+      var confirmarSenha = document.getElementById('confirmarSenha').value;
+      var tipoPet = document.getElementById('tipoPet').value;
+      var nomePet = document.getElementById('nomePet').value;
+      var idadePet = document.getElementById('idadePet').value;
+
+      // Salva os valores em localStorage ou pode ser enviado para um servidor
+
+      localStorage.setItem('nome', nome);
+      localStorage.setItem('email', email);
+      localStorage.setItem('confirmarEmail', confirmarEmail);
+      localStorage.setItem('dataNascimento', dataNascimento);
+      localStorage.setItem('senha', senha);
+      localStorage.setItem('confirmarSenha', confirmarSenha);
+      localStorage.setItem('tipoPet', tipoPet);
+      localStorage.setItem('nomePet', nomePet);
+      localStorage.setItem('idadePet', idadePet);
+
+      if (senha !== confirmarSenha) {
+        alert('A senha e a confirmação de senha não coincidem.');
+        return;
+      }
+      if (email !== confirmarEmail)
+      {
+        alert('O email e a confirmação do email não coincidem.');
+        return;
+      }
+      alert('Cadastro realizado com sucesso!');
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro</h1>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="email" id="email" placeholder="Email">
+    <input type="email" id="confirmarEmail" placeholder="Confirmação de Email">
+    <input type="date" id="dataNascimento" placeholder="Data de Nascimento">
+    <input type="password" id="senha" placeholder="Senha">
+    <input type="password" id="confirmarSenha" placeholder="Confirmação de Senha">
+    <select id="tipoPet">
+      <option value="">Selecione o tipo de pet</option>
+      <option value="cachorro">Cachorro</option>
+      <option value="gato">Gato</option>
+      <option value="passaro">Pássaro</option>
+      <option value="outro">Outro</option>
+    </select>
+    <input type="text" id="nomePet" placeholder="Nome do Pet">
+    <input type="number" id="idadePet" placeholder="Idade do Pet">
+    <button type="submit" onclick="cadastrar()">Cadastrar</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tela de Login na Petlândia</title>
+  <style>
+   body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+    }
+    
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f4f4f4;
+    }
+    
+    .container h2 {
+      text-align: center;
+    }
+    
+    .container input[type="text"],
+    .container input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    
+    .container button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function realizarLogin() {
+      var email = document.getElementById('email').value;
+      var senha = document.getElementById('senha').value;
+
+      // Obter os dados do usuário do localStorage
+      var usuario = JSON.parse(localStorage.getItem('usuario'));
+
+      if (usuario && usuario.email === email && usuario.senha === senha) {
+        alert('Login realizado com sucesso!');
+        // Redirecionar para a tela do blog ou realizar outras ações
+      } else {
+        alert('Email ou senha inválidos!');
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form>
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" name="username" required><br>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required><br>
+      <button type="submit">Entrar</button>
+      <a href = cadastro.html>Cadastre-se</a>
+    </form>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
